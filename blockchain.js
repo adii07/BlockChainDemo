@@ -138,8 +138,8 @@ function setHashValues(i,nonce){
     }
 }
 
-async function sha256(message,nonce) {
-    message+=nonce;
+async function sha256(message,nonce,prev="") {
+    message+=nonce+prev;
     const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
     const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
@@ -250,7 +250,7 @@ mineBlock2.addEventListener("click",event=>{
         nonce=Math.floor(Math.random() * 100000);
         block2NonceValue.value=nonce;
     }
-    sha256(inputData,nonce).then((digestHex) => {
+    sha256(inputData,nonce,prevHashBlock2).then((digestHex) => {
         block2HashValue.value=digestHex;
         currentHashBlock2=digestHex;
         updatedHashBlock2=digestHex;
@@ -264,7 +264,7 @@ mineBlock2.addEventListener("click",event=>{
 block2NonceValue.addEventListener("input",(clickEventHandler)=>{
     var newNonce=block2NonceValue.value;
     var inputData=block2Data.value;
-    sha256(inputData,newNonce).then((digestHex) => {
+    sha256(inputData,newNonce,prevHashBlock2).then((digestHex) => {
         block2HashValue.value=digestHex;
         updatedHashBlock2=digestHex;
         checkHashValue();
@@ -275,7 +275,7 @@ block2NonceValue.addEventListener("input",(clickEventHandler)=>{
 block2Data.addEventListener("input",(clickEventHandler)=>{
     var newNonce=block2NonceValue.value;
     var inputData=block2Data.value;
-    sha256(inputData,newNonce).then((digestHex) => {
+    sha256(inputData,newNonce,prevHashBlock2).then((digestHex) => {
         block2HashValue.value=digestHex;
         updatedHashBlock2=digestHex;
         checkHashValue();
@@ -306,7 +306,7 @@ mineBlock3.addEventListener("click",event=>{
         nonce=Math.floor(Math.random() * 100000);
         block3NonceValue.value=nonce;
     }
-    sha256(inputData,nonce).then((digestHex) => {
+    sha256(inputData,nonce,prevHashBlock3).then((digestHex) => {
         block3HashValue.value=digestHex;
         currentHashBlock3=digestHex;
         updatedHashBlock3=digestHex;
@@ -320,7 +320,7 @@ mineBlock3.addEventListener("click",event=>{
 block3NonceValue.addEventListener("input",(clickEventHandler)=>{
     var newNonce=block3NonceValue.value;
     var inputData=block3Data.value;
-    sha256(inputData,newNonce).then((digestHex) => {
+    sha256(inputData,newNonce,prevHashBlock3).then((digestHex) => {
         block3HashValue.value=digestHex;
         updatedHashBlock3=digestHex;
         checkHashValue();
@@ -331,7 +331,7 @@ block3NonceValue.addEventListener("input",(clickEventHandler)=>{
 block3Data.addEventListener("input",(clickEventHandler)=>{
     var newNonce=block3NonceValue.value;
     var inputData=block3Data.value;
-    sha256(inputData,newNonce).then((digestHex) => {
+    sha256(inputData,newNonce,prevHashBlock3).then((digestHex) => {
         block3HashValue.value=digestHex;
         updatedHashBlock3=digestHex;
         checkHashValue();
@@ -361,7 +361,7 @@ mineBlock4.addEventListener("click",event=>{
         nonce=Math.floor(Math.random() * 100000);
         block4NonceValue.value=nonce;
     }
-    sha256(inputData,nonce).then((digestHex) => {
+    sha256(inputData,nonce,prevHashBlock4).then((digestHex) => {
         block4HashValue.value=digestHex;
         currentHashBlock4=digestHex;
         updatedHashBlock4=digestHex;
@@ -375,7 +375,7 @@ mineBlock4.addEventListener("click",event=>{
 block4NonceValue.addEventListener("input",(clickEventHandler)=>{
     var newNonce=block4NonceValue.value;
     var inputData=block4Data.value;
-    sha256(inputData,newNonce).then((digestHex) => {
+    sha256(inputData,newNonce,prevHashBlock4).then((digestHex) => {
         block4HashValue.value=digestHex;
         updatedHashBlock4=digestHex;
         checkHashValue();
@@ -386,7 +386,7 @@ block4NonceValue.addEventListener("input",(clickEventHandler)=>{
 block4Data.addEventListener("input",(clickEventHandler)=>{
     var newNonce=block4NonceValue.value;
     var inputData=block4Data.value;
-    sha256(inputData,newNonce).then((digestHex) => {
+    sha256(inputData,newNonce,prevHashBlock4).then((digestHex) => {
         block4HashValue.value=digestHex;
         updatedHashBlock4=digestHex;
         checkHashValue();
@@ -417,7 +417,7 @@ mineBlock5.addEventListener("click",event=>{
         nonce=Math.floor(Math.random() * 100000);
         block5NonceValue.value=nonce;
     }
-    sha256(inputData,nonce).then((digestHex) => {
+    sha256(inputData,nonce,prevHashBlock5).then((digestHex) => {
         block5HashValue.value=digestHex;
         currentHashBlock5=digestHex;
         updatedHashBlock5=digestHex;
@@ -431,7 +431,7 @@ mineBlock5.addEventListener("click",event=>{
 block5NonceValue.addEventListener("input",(clickEventHandler)=>{
     var newNonce=block5NonceValue.value;
     var inputData=block5Data.value;
-    sha256(inputData,newNonce).then((digestHex) => {
+    sha256(inputData,newNonce,prevHashBlock5).then((digestHex) => {
         block5HashValue.value=digestHex;
         updatedHashBlock5=digestHex;
         checkHashValue();
@@ -442,7 +442,7 @@ block5NonceValue.addEventListener("input",(clickEventHandler)=>{
 block5Data.addEventListener("input",(clickEventHandler)=>{
     var newNonce=block5NonceValue.value;
     var inputData=block5Data.value;
-    sha256(inputData,newNonce).then((digestHex) => {
+    sha256(inputData,newNonce,prevHashBlock5).then((digestHex) => {
         block5HashValue.value=digestHex;
         updatedHashBlock5=digestHex;
         checkHashValue();
