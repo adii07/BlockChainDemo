@@ -1,0 +1,119 @@
+:root{
+    --dark-grey:#787A91;
+    --primary-color:#1A1A2E;
+    --secondary-color:#16213E;
+}
+body{
+    margin: 0px auto;
+}
+.navigation{
+    background: linear-gradient(0deg,black,var(--primary-color), var(--secondary-color));
+    padding: 1rem;
+    height: fit-content;
+    /*
+    * used to space the nav-title ans the list on the same level and at he 2 extreme edges
+    */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /**/
+}
+
+.navigation .nav-title{
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.navigation .list-non-bullet{
+    text-align: right;
+}
+
+.navigation .list-item-inline{
+    display: inline;
+}
+
+.navigation a{
+    padding: 0.5rem 1rem;
+}
+.navigation .link{
+    color: var(--dark-grey);
+    font-size: 1.2rem;
+}
+.navigation .link-active{
+    color: white
+}
+
+.block{
+align-self: center;
+align-content: center;
+}
+
+.block-heading{
+margin-left: 10%;
+margin-top: 2rem;
+padding-top: 2rem;
+}
+.block-area{
+    background-color: var(--secondary-color);
+    width:80%;
+    height: 500px;
+    margin: auto;
+    border: black;
+    border-radius:20px;
+    box-shadow: 1px 1px 10px 1px;
+    text-align: center;
+}
+
+.block-number{
+    padding: 2rem;
+    margin: auto;
+}
+
+.block-number label{
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 400;
+}
+
+.input-group span{
+    background-color: var(--dark-grey);
+    color: white;
+}
+
+.input-group{
+    margin-left: 2rem;
+    padding: 2rem;
+    display: inline;
+}
+.block-num-input{
+    width: 60%;
+    height: 2em;
+    /* margin: auto; */
+    border: solid 1.5px #D3D3D3;
+    font-size: 14px;
+    font-weight: bold;
+}
+.mine-button{
+    position: absolute;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+}
+
+#hash-function:hover{
+    cursor:not-allowed;
+}
+
+input::after{
+    box-shadow: 1px 1px 1px 1px;
+}
+input:hover{
+    box-shadow: 0 0 0.5pt 0.5pt #00A8CC;
+  }
+  input:focus {
+    box-shadow: 0 0 2pt 2pt #00A8CC;
+    outline-width: 0px;
+  }
